@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "61a5a4c00ee6d724ea961598",
+        "role": "user",
+        "name": "Sarantuya",
+        "email": "saran@gmail.com",
+        "password": "user"
+    },
+    {
+        "_id": "61a5ab501939cba54030d56e",
+        "name": "Regee",
+        "role": "operator",
+        "email": "regee@gmail.com",
+        "password": "operator"
+    },
+    {
+        "_id": "61a7046eb0e06e82e53a93f8",
+        "name": "tuguldur",
+        "role": "admin",
+        "email": "tgldr@gmail.com",
+        "password": "admin"
+    }
+]

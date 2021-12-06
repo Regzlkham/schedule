@@ -1,0 +1,194 @@
+[
+    {
+        "_id": "619c605a0d61ae49425f1c32",
+        "name": "Бат-Математик",
+        "email": "bat123@gmail.com",
+        "phone": 86829919,
+        "createdAt": "2021-11-23T03:30:34.835Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c60810d61ae49425f1c34",
+        "name": "Анхаа-Математик",
+        "email": "ankh@gmail.com",
+        "phone": 88489114,
+        "createdAt": "2021-11-23T03:31:13.672Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c60a70d61ae49425f1c36",
+        "name": "Од-Монгол хэл",
+        "email": "od1119@gmail.com",
+        "phone": 88896702,
+        "createdAt": "2021-11-23T03:31:51.561Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c60c70d61ae49425f1c38",
+        "name": "Дулам-Физик",
+        "email": "dulam78@gmail.com",
+        "phone": 97171154,
+        "createdAt": "2021-11-23T03:32:23.453Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c60df0d61ae49425f1c3a",
+        "name": "Санжаа-Физик",
+        "email": "sanjaa@gmail.com",
+        "phone": 80080350,
+        "createdAt": "2021-11-23T03:32:47.108Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c60fe0d61ae49425f1c3c",
+        "name": "Дорж-Англи хэл",
+        "email": "dorj88@gmail.com",
+        "phone": 88058478,
+        "createdAt": "2021-11-23T03:33:18.352Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61260d61ae49425f1c3e",
+        "name": "Оюун-Англи хэл",
+        "email": "oyunaa@gmail.com",
+        "phone": 99103365,
+        "createdAt": "2021-11-23T03:33:58.142Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61440d61ae49425f1c40",
+        "name": "Пагма-Уран зохиол",
+        "email": "pagma321@gmail.com",
+        "phone": 99669492,
+        "createdAt": "2021-11-23T03:34:28.436Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61670d61ae49425f1c42",
+        "name": "Аюуш-Уран зохиол",
+        "email": "ayushhh@gmail.com",
+        "phone": 80460063,
+        "createdAt": "2021-11-23T03:35:03.940Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61880d61ae49425f1c44",
+        "name": "Зулаа-Монгол бичиг",
+        "email": "zul5555@gmail.com",
+        "phone": 99446030,
+        "createdAt": "2021-11-23T03:35:36.224Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61ab0d61ae49425f1c46",
+        "name": "Цэрэн-Монгол бичиг",
+        "email": "Tseren@gmail.com",
+        "phone": 88654832,
+        "createdAt": "2021-11-23T03:36:11.957Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61c50d61ae49425f1c48",
+        "name": "Мийгаа-Орос хэл",
+        "email": "miig@gmail.com",
+        "phone": 80212322,
+        "createdAt": "2021-11-23T03:36:37.065Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c61e10d61ae49425f1c4a",
+        "name": "Наран-Мэдээлэл технологи",
+        "email": "naran@gmail.com",
+        "phone": 85775582,
+        "createdAt": "2021-11-23T03:37:05.453Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62010d61ae49425f1c4c",
+        "name": "Төмөр-Дизайн технологи",
+        "email": "tumruu48@gmail.com",
+        "phone": 90353003,
+        "createdAt": "2021-11-23T03:37:37.233Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62260d61ae49425f1c4e",
+        "name": "Отгоо-хими",
+        "email": "otgooo@gmail.com",
+        "phone": 90564521,
+        "createdAt": "2021-11-23T03:38:14.270Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62490d61ae49425f1c50",
+        "name": "Ирмүүн-Эрүүл мэнд",
+        "email": "irmuukk@gmail.com",
+        "phone": 99657841,
+        "createdAt": "2021-11-23T03:38:49.654Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62640d61ae49425f1c52",
+        "name": "Сараа-Биологи",
+        "email": "saraa99@gmail.com",
+        "phone": 89542378,
+        "createdAt": "2021-11-23T03:39:16.902Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62830d61ae49425f1c54",
+        "name": "Төгсөө-Биеийн тамир",
+        "email": "tutu99@gmail.com",
+        "phone": 80603737,
+        "createdAt": "2021-11-23T03:39:47.689Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62ad0d61ae49425f1c56",
+        "name": "Соёлоо-Газарзүй",
+        "email": "b.soyloo@gmail.com",
+        "phone": 88058936,
+        "createdAt": "2021-11-23T03:40:29.490Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62ce0d61ae49425f1c58",
+        "name": "Сувд-Түүх",
+        "email": "suvdaaaa@gmail.com",
+        "phone": 88467010,
+        "createdAt": "2021-11-23T03:41:02.198Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c62f00d61ae49425f1c5a",
+        "name": "Ганаа-Нийгэм",
+        "email": "Ganaa258@gmail.com",
+        "phone": 86565545,
+        "createdAt": "2021-11-23T03:41:36.834Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c63150d61ae49425f1c5c",
+        "name": "Энхээ-Иргэний ёс зүйн боловсрол",
+        "email": "enkh.e@gmail.com",
+        "phone": 89885621,
+        "createdAt": "2021-11-23T03:42:13.036Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c63370d61ae49425f1c5e",
+        "name": "Баатар-Зураг зүй",
+        "email": "baatraa@gmail.com",
+        "phone": 97458256,
+        "createdAt": "2021-11-23T03:42:47.419Z",
+        "__v": 0
+    },
+    {
+        "_id": "619c63620d61ae49425f1c60",
+        "name": "Цэцэг-Дуу хөгжим",
+        "email": "tsetseg45@gmail.com",
+        "phone": 88464515,
+        "createdAt": "2021-11-23T03:43:30.092Z",
+        "__v": 0
+    }
+]
