@@ -15,7 +15,7 @@ const teachersRoutes = require("./routes/teachers");
 const usersRoutes = require("./routes/users");
 
 const cors = require("cors");
-
+var cookieParser = require('cookie-parser')
 // Аппын тохиргоог process.env рүү ачаалах
 dotenv.config({ path: "./config/config.env" });
 const app = express();
@@ -30,9 +30,10 @@ var accessLogStream = rfs.createStream('access.log', {
 
 
 //body parser
+app.use(cookieParser());
+app.use(logger);
 app.use(express.json());
 app.use(cors());
-app.use(logger);
 app.use(morgan('combined', { stream: accessLogStream }));
 app.use("/api/v1/classes", classesRoutes);
 app.use("/api/v1/rooms", roomsRoutes);
