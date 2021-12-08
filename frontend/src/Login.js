@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './styles/login.scss';
 
 export default class Login extends Component {
   state = {
@@ -32,7 +33,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="loginForm">
         {this.state.error && (
           <div className="notification is-warning">{this.state.error}</div>
         )}

@@ -7,6 +7,7 @@ const colors = require('colors');
 const errorHandler = require("./middleware/error")
 var morgan = require('morgan');
 const logger = require("./middleware/logger");
+var cookieParser = require("cookie-parser");
 
 //Router оруулж ирэх
 const classesRoutes = require("./routes/clsses");
@@ -15,7 +16,7 @@ const teachersRoutes = require("./routes/teachers");
 const usersRoutes = require("./routes/users");
 
 const cors = require("cors");
-var cookieParser = require('cookie-parser')
+
 // Аппын тохиргоог process.env рүү ачаалах
 dotenv.config({ path: "./config/config.env" });
 const app = express();
