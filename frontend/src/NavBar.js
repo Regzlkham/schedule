@@ -20,7 +20,6 @@ export default function NavBar({ onLogout }) {
             </a>
             </div>
         </div>
-
     </nav>
     );
 }

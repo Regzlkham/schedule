@@ -14,6 +14,7 @@ const classesRoutes = require("./routes/clsses");
 const roomsRoutes = require("./routes/rooms");
 const teachersRoutes = require("./routes/teachers");
 const usersRoutes = require("./routes/users");
+const huviarRouter = require('./routes/huviar');
 
 const cors = require("cors");
 
@@ -40,6 +41,7 @@ app.use("/api/v1/classes", classesRoutes);
 app.use("/api/v1/rooms", roomsRoutes);
 app.use("/api/v1/teachers", teachersRoutes);
 app.use("/api/v1/users", usersRoutes);
+app.use('/api/v1/huviar', huviarRouter);
 
 app.use(errorHandler);
 

@@ -100,6 +100,7 @@ const getClsses = () =>{
       }
     }
   
-    return  !loading ? (<div  className="container mt-3 mb-3"> angi
+    return  !loading ? (<div  className="container mt-3 mb-3">
+      Angi
   </div>) : (<div className="container text-center"><Spin /></div>);
   }

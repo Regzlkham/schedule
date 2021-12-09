@@ -1,18 +1,68 @@
 import React, { Component, useState, useEffect  } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { DeleteOutlined } from '@ant-design/icons';
-import {  Button, Spin,  Select } from 'antd';
+import {  Button, Spin,   Row, Col, Form, Select, Card, message, List} from 'antd';
+
+import {DeleteOutlined , EditOutlined } from '@ant-design/icons';
 
 
 export default function Home() {
     const [loading, setLoadng] = useState(true);
     const [data, setData] = useState([]);
-
+    const weeks = ['Даваа', 'Мягмар', 'Лхагва', 'Пүрэв', 'Баасан' ];
+    const [form, setForm] = useState({
+      _id : null,
+      cls: null,
+      room: null,
+      teacher: null,
+      week: 0
+  });
     const [loadTeachers, setLoadTeacher] = useState([]);
     const [loadRooms, setLoadRoom] = useState(null);
     const [loadClsses, setLoadClss] = useState(null);
+    const [huviar, setHuviar] = useState(null);
+ 
+    const resetForm = ()=>{
+        setForm({
+          _id : null,
+          cls: null,
+          room: null,
+          teacher: null,
+          week: 0
+      });
+    }
+
+    const saveForm = ()=>{
+      // console.log(form);
+      if(form._id===null){
+        axios.post("/api/v1/huviar", form).then((r) => {
+          message.success('Амжилттай нэмэгдлээ');
+          resetForm();
+          setHuviar(null);
+        }).catch((r)=>{ message.error('aldaa garlaa'); });
+      } else {
+        axios.put("/api/v1/huviar/"+form._id, form).then((r) => {
+          message.success('Амжилттай хадгаллаа');
+          resetForm();
+          setHuviar(null);
+        }).catch((r)=>{ message.error('aldaa garlaa');  });
+      }
+    }
+
+    const deleteForm = (h)=>{
+      axios.delete("/api/v1/huviar/"+h._id).then((r) => {
+        message.success('Амжилттай устгалаа');
+        resetForm();
+        setHuviar(null);
+      }).catch((r)=>{ message.error('aldaa garlaa');  }); 
+    }
     
+
+    const getHuviar = () =>{
+      axios.get("api/v1/huviar").then((r) => {
+        setHuviar(r.data.data);
+      });
+    }
 
   const getTeachers = () =>{
     axios.get("http://localhost:8000/api/v1/teachers").then((r) => {
@@ -35,6 +85,33 @@ const getClsses = () =>{
   });
 }
 
+const getTeacherName = (teacher_id) =>{
+    const teacher = loadTeachers.find((t)=> t._id === teacher_id);
+    return teacher.name;
+}
+
+
+const getClsName = (cls_id) =>{
+  const cls = loadClsses.find((t)=> t._id === cls_id);
+  return cls.name;
+}
+
+
+
+
+const ShowHuviar = (week, room) => {
+  console.log(week, room)
+  return (<List>
+  {huviar.map((h)=> (h.week===week && h.room ===room) ? 
+  <List.Item  
+    actions={[<a key="list-loadmore-edit" onClick={()=>setForm(h)}><EditOutlined /></a>, <a key="list-loadmore-more" onClick={()=>deleteForm(h)} ><DeleteOutlined /></a>]} >
+      {getTeacherName(h.teacher)} - {getClsName(h.cls)}
+  </List.Item>: ""
+    )}
+  </List>)
+  
+}
+
   useEffect(() => {
       if (loadTeachers.length === 0) {
         getTeachers();
@@ -51,90 +128,112 @@ const getClsses = () =>{
       if(loadTeachers!=null && loadRooms !=null && loadClsses !=null){
         setLoadng(false);
       }
-    }, [loadTeachers, loadRooms, loadClsses]);
-
-
-    const weeks = ['Даваа', 'Мягмар', 'Лхагва', 'Пүрэв', 'Баасан' ];
-    const column = ['Багш-хичээл', 'Анги-бүлэг'];
-  
-    const changeData = (key, index, value) =>{
-      // console.log(key, index, value)
-      var a = [...data];
-      a[index][key] = value;
-      setData(a);
-    }
-    const deleteData = (index) =>{
-      var a = [...data];
-      a.splice(index, 1)
-      setData(a);
-    }
-    const addData = (roomId, weekIndex) => {
-      var a = [...data];
-      a.push({ room: roomId,  week: weekIndex, teacher: null, class: null })
-      setData(a);
-    }
-
-    const listData = (d, i, roomId, weekIndex) =>{
-      if(weekIndex === d.week && d.room === roomId){
-        return  (<tr key={`row${i}-room${roomId}-week${weekIndex}`} >
-        <td>
-              <Select value={d.teacher} placeholder="багш хичээл" onChange={(e)=>{ changeData("teacher", i, e) }} >
-                <Select.Option value={null}>Багш хичээл</Select.Option>
-                {loadTeachers.map(teacher=> 
-                  <Select.Option    value={teacher.id}>{teacher.name}</Select.Option>
-                )}
-              </Select>
-        </td>
-        <td className="col-6">
-        <Select value={d.class} placeholder="анги бүлэг" onChange={(e)=>{ changeData("class", i, e) }} >
-            <Select.Option value={null}>Анги бүлэг</Select.Option>
-            {loadClsses.map(class1=>
-              <Select.Option    value={class1.id}>{class1.name}</Select.Option>
-              )}
-        </Select>
-        </td>
-        <td>
-          <Button icon={<DeleteOutlined />} onClick={()=>deleteData(i)} />
-        </td>
-      </tr>)
+      if(huviar === null) {
+        getHuviar();
       }
-    }
+    }, [loadTeachers, loadRooms, loadClsses, huviar]);
   
-    return  !loading ? (<div  className="container mt-3 mb-3"> <div>
-      {/* {JSON.stringify(loadTeachers)} */}
-      {/* {JSON.stringify(loadRooms)} */}
-      {/* {JSON.stringify(loadClsses)} */}
-    <table  className="table table-bordered" >
-        <thead>
-            <tr className="bg-primary text-white">
-                <th  ></th>
-                {weeks.map((week)=><th width="17%" key={`week${week}`} >{week}</th>)}
-            </tr>
-        </thead>
+    const changeFormValue = (key, value) =>{
+      console.log(key, value);
+      var a = {...form};
+      a[key]= value;
+      setForm(a);
+    }
+    
+    return  !loading ? (<div  > 
+   <Row  >
+      <Col span={4}>
+      <Card title={form._id ? "Хуваарь засах": "Хуваарь нэмэх"}>
+          <Form layout="vertical">
+            <Form.Item label="Анги сонгох">
+                <Select  
+                showSearch   
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }  
+                value={form.cls}
+                onChange={(e)=>changeFormValue('cls', e)}
+                >
+                  {loadClsses && loadClsses.map((c)=>(
+                        <Select.Option key={c._id} value={c._id}>{c.name}</Select.Option>
+                  ))}
+                 
+                </Select>
+            </Form.Item>
+            <Form.Item label="Багш сонгох">
+            <Select  
+                showSearch   
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }  
+                value={form.teacher}
+                onChange={(e)=>changeFormValue('teacher',e)}
+                >
+                {loadTeachers && loadTeachers.map((c)=>(
+                        <Select.Option key={c._id} value={c._id}>{c.name}</Select.Option>
+                  ))}
+                </Select>
+            </Form.Item>
+            <Form.Item label="Гариг сонгох">
+            <Select  
+                showSearch   
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }  
+                value={form.week}
+                onChange={(e)=>changeFormValue('week',e)}
+                >
+                  {weeks.map((c,i)=>(
+                        <Select.Option key={i} value={i}>{c}</Select.Option>
+                  ))}
+                </Select>
+            </Form.Item>
+            <Form.Item label="Өрөө сонгох">
+            <Select  
+                showSearch   
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }  
+                value={form.room}
+                onChange={(e)=>changeFormValue('room', e)}
+                >
+                {loadRooms && loadRooms.map((c)=>(
+                        <Select.Option key={c._id} value={c._id}>{c.name}</Select.Option>
+                  ))}
+                </Select>
+            </Form.Item>
+            <Button type="primary" htmlType="submit" onClick={()=>saveForm()} >
+          Хадгалах
+        </Button>
+        <Button  style={{marginLeft:15}} onClick={()=>resetForm()} >
+          Цуцлах
+        </Button>
+          </Form>
+    </Card>
+      </Col>
+      <Col span={20}>
+        {/* {JSON.stringify(huviar)} */}
+        {huviar && (
+            <div className="calendar">
+              <Row>
+              <Col className="border border-title" span="2" offset={1}></Col>
+                {weeks.map((week, i)=>(<Col span="4" key={i} className="border  border-title">{week}</Col>))} 
+              </Row>
+            
+              {loadRooms && loadRooms.map((room)=>(
+                <Row key={room._id}>
+                <Col className="border border-title"  span="2" offset={1}>{room.name}</Col>
+                  {weeks.map((week, i)=>(<Col span="4" key={i} className="border">
+                    
+                    {ShowHuviar(i, room._id)}
+                  </Col>))} 
+                </Row>
+              ))}
+              </div>
+           )}
+      </Col>
+   </Row>
+   
 
-        <tbody> 
-                {loadRooms.map(room=>(
-                      <tr key={`row${room.id}`}>  
-                          <td>{room.name}</td>
-                          {weeks.map((week, weekIndex)=><td   key={`row${room.id}-${weekIndex}`} >
-                              <table className="table">
-                                <thead>
-                                <tr> <th width="50%">Багш</th><th>Анги</th> </tr>
-                                  </thead>
-                                  <tbody>
-                              {data && data.map((d, i)=> listData(d,i, room.id, weekIndex) ) }   
-                              </tbody>
-                              <tfoot>
-                                <tr>
-                                  <td> <Button  className="homeButton" onClick={()=>addData(room.id, weekIndex)}  >Нэмэх</Button></td>
-                                </tr>
-                              </tfoot>
-                              </table>     
-                          </td>)}
-                        </tr> 
-                ))}
-        </tbody>
-    </table>
-    </div>
   </div>) : (<div className="container text-center"><Spin /></div>);
   }

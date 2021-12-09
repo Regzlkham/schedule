@@ -10,10 +10,15 @@ import Classes from "./Classes";
 import Teach from "./Teach";
 import NavBar from "./NavBar";
 
+
+
 export default class App extends Component {
   state = {
     token: null,
   };
+
+
+  
 
   handleLogin = (token) => {
     this.setState({ token });
