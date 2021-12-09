@@ -44,7 +44,7 @@ exports.createRoom = asyncHandler(async (req, res, next) => {
     const teacher = await Teacher.findById(req.body.teacher);
 
     if (!teacher) {
-        throw new MyError(req.body.teacher + " ID-тэй багш байхгүй!", 400);
+        throw new MyError(req.body.teacher + " ID-тэй өрөө байхгүй!", 400);
     }
 
     req.body.createUser = req.userId;
@@ -65,7 +65,7 @@ exports.updateRoom = asyncHandler(async (req, res, next) => {
     });
     
     if (!room) {
-        throw new MyError(req.params.id + " ID-тэй багш байхгүй", 400);
+        throw new MyError(req.params.id + " ID-тэй өрөө байхгүй", 400);
     }
     
     res.status(200).json({
@@ -78,7 +78,7 @@ exports.deleteRoom = asyncHandler(async (req, res, next) => {
     const room = await Room.findByIdAndDelete(req.params.id);
     
     if (!room) {
-        throw new MyError(req.params.id + " ID-тэй багш байхгүй", 400);
+        throw new MyError(req.params.id + " ID-тэй өрөө байхгүй", 400);
     }
     
     res.status(200).json({
