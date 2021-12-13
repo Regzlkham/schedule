@@ -34,7 +34,7 @@ export default function Home() {
   
     return  loadTeachers ? 
     (<div  className="container mt-3 mb-3">
-      <PageHeader title="Багш"  />
+      <PageHeader title="Ангиуд"  />
       <Table dataSource={loadTeachers} columns={column} />
       {/* {JSON.stringify(loadTeachers)} */}
     </div>)

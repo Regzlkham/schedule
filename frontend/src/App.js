@@ -11,13 +11,10 @@ import Teach from "./Teach";
 import NavBar from "./NavBar";
 
 
-
 export default class App extends Component {
   state = {
     token: null,
   };
-
-
 
 
   handleLogin = (token) => {
@@ -40,7 +37,6 @@ export default class App extends Component {
       { this.state.token  && <NavBar onLogout={this.handleLogout} />} 
     
           <Switch>
-         
           <Route exact path="/teachers" component={Teachers} />
             <Route exact path="/teach" component={Teach} />
             <Route exact path="/room" component={Room} />

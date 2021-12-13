@@ -27,9 +27,6 @@ render() {
             <div>Түр хүлээнэ үү...</div>
         ) : (
             <div className="container mt-3 mb-3">
-                
-            
-
             </div>
             )}
         </div>

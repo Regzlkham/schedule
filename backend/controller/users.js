@@ -146,7 +146,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   // await user.save({ validateBeforeSave: false });
 
   // Имэйл илгээнэ
-  const link = `https://amazon.mn/changepassword/${resetToken}`;
+  const link = `https://schedule.mn/changepassword/${resetToken}`;
 
   const message = `Сайн байна уу<br><br>Та нууц үгээ солих хүсэлт илгээлээ.<br> Нууц үгээ доорхи линк дээр дарж солино уу:<br><br><a target="_blank" href="${link}">${link}</a><br><br>Өдрийг сайхан өнгөрүүлээрэй!`;
 
