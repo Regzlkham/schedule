@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background: #3990d8;
+  background: radial-gradient(#428bca, #58c9f3);
   a {
     color: #fff;
   }
@@ -19,11 +19,10 @@ html {
   padding: 0px;
   font-size: 13px;
   font-family: Arial;
-  // background: #3990d8;
 }
 .border-title {
   text-align: center;
-  background: #3990d8 !important;
+  background: radial-gradient(#428bca, #58c9f3) !important;
   color: #fff;
 }
 .border {
@@ -41,4 +40,9 @@ html {
 
 .ant-list-item-action {
   margin-left: 0px !important;
+}
+.ant-table-container {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  background: radial-gradient(#58c9f3, transparent);
 }
